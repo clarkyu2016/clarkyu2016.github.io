@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>数据分析的实习？工资多少？怎么找？这里有你想知道的一切 | 厕所兄弟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据分析">
+    <meta name="description" content="不同城市日薪分布               注：1.本项目所有的代码均放在了我的GitHub上，戳我戳我进行访问。2. 感谢周同学的指点，补充了关于所属行业的分析以及调整了多项计数的方式。  项目背景最近在考虑暑">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析的实习？工资多少？怎么找？这里有你想知道的一切">
+<meta property="og:url" content="http://wcbro.com/2017/04/25/internship/index.html">
+<meta property="og:site_name" content="厕所兄弟">
+<meta property="og:description" content="不同城市日薪分布               注：1.本项目所有的代码均放在了我的GitHub上，戳我戳我进行访问。2. 感谢周同学的指点，补充了关于所属行业的分析以及调整了多项计数的方式。  项目背景最近在考虑暑">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-bd6b2de24e2a84b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-c119431ff6b32a9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-a2ae277ffc506a19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-b6ab2b4b89d15249.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-586e693cd9693922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-bdc547019236f4a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-bd6b2de24e2a84b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-8ba7eacc2cfcc8ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-20T20:45:38.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析的实习？工资多少？怎么找？这里有你想知道的一切">
+<meta name="twitter:description" content="不同城市日薪分布               注：1.本项目所有的代码均放在了我的GitHub上，戳我戳我进行访问。2. 感谢周同学的指点，补充了关于所属行业的分析以及调整了多项计数的方式。  项目背景最近在考虑暑">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8604-bd6b2de24e2a84b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Clark Yu</h5>
+          <a href="mailto:clarkyu1993@outlook.com" title="clarkyu1993@outlook.com" class="mail">clarkyu1993@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-ABOUT"></i>
+                ABOUT
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/others"  >
+                <i class="icon icon-lg icon-projects"></i>
+                PROJECTS
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数据分析的实习？工资多少？怎么找？这里有你想知道的一切</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数据分析的实习？工资多少？怎么找？这里有你想知道的一切</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-25T13:42:09.000Z" itemprop="datePublished" class="page-time">
+  2017-04-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据分析/">数据分析</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#项目背景"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x9879;&#x76EE;&#x80CC;&#x666F;" class="headerlink" title="&#x9879;&#x76EE;&#x80CC;&#x666F;"></a>&#x9879;&#x76EE;&#x80CC;&#x666F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#项目简介"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x9879;&#x76EE;&#x7B80;&#x4ECB;" class="headerlink" title="&#x9879;&#x76EE;&#x7B80;&#x4ECB;"></a>&#x9879;&#x76EE;&#x7B80;&#x4ECB;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据来源和数据集"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x6765;&#x6E90;&#x548C;&#x6570;&#x636E;&#x96C6;" class="headerlink" title="&#x6570;&#x636E;&#x6765;&#x6E90;&#x548C;&#x6570;&#x636E;&#x96C6;"></a>&#x6570;&#x636E;&#x6765;&#x6E90;&#x548C;&#x6570;&#x636E;&#x96C6;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目的"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#&#x76EE;&#x7684;" class="headerlink" title="&#x76EE;&#x7684;"></a>&#x76EE;&#x7684;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据清洗和整理"><span class="post-toc-number">5.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x6E05;&#x6D17;&#x548C;&#x6574;&#x7406;" class="headerlink" title="&#x6570;&#x636E;&#x6E05;&#x6D17;&#x548C;&#x6574;&#x7406;"></a>&#x6570;&#x636E;&#x6E05;&#x6D17;&#x548C;&#x6574;&#x7406;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据分析"><span class="post-toc-number">6.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x5206;&#x6790;" class="headerlink" title="&#x6570;&#x636E;&#x5206;&#x6790;"></a>&#x6570;&#x636E;&#x5206;&#x6790;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-哪些行业需要数据分析实习生？"><span class="post-toc-number">6.1.</span> <span class="post-toc-text"><a href="#1-&#x54EA;&#x4E9B;&#x884C;&#x4E1A;&#x9700;&#x8981;&#x6570;&#x636E;&#x5206;&#x6790;&#x5B9E;&#x4E60;&#x751F;&#xFF1F;" class="headerlink" title="1. &#x54EA;&#x4E9B;&#x884C;&#x4E1A;&#x9700;&#x8981;&#x6570;&#x636E;&#x5206;&#x6790;&#x5B9E;&#x4E60;&#x751F;&#xFF1F;"></a>1. &#x54EA;&#x4E9B;&#x884C;&#x4E1A;&#x9700;&#x8981;&#x6570;&#x636E;&#x5206;&#x6790;&#x5B9E;&#x4E60;&#x751F;&#xFF1F;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-最少出勤天数"><span class="post-toc-number">6.2.</span> <span class="post-toc-text"><a href="#2-&#x6700;&#x5C11;&#x51FA;&#x52E4;&#x5929;&#x6570;" class="headerlink" title="2. &#x6700;&#x5C11;&#x51FA;&#x52E4;&#x5929;&#x6570;"></a>2. &#x6700;&#x5C11;&#x51FA;&#x52E4;&#x5929;&#x6570;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-最短持续时间"><span class="post-toc-number">6.3.</span> <span class="post-toc-text"><a href="#3-&#x6700;&#x77ED;&#x6301;&#x7EED;&#x65F6;&#x95F4;" class="headerlink" title="3. &#x6700;&#x77ED;&#x6301;&#x7EED;&#x65F6;&#x95F4;"></a>3. &#x6700;&#x77ED;&#x6301;&#x7EED;&#x65F6;&#x95F4;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-日薪分布情况"><span class="post-toc-number">6.4.</span> <span class="post-toc-text"><a href="#4-&#x65E5;&#x85AA;&#x5206;&#x5E03;&#x60C5;&#x51B5;" class="headerlink" title="4. &#x65E5;&#x85AA;&#x5206;&#x5E03;&#x60C5;&#x51B5;"></a>4. &#x65E5;&#x85AA;&#x5206;&#x5E03;&#x60C5;&#x51B5;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-实习岗位的地区分布情况"><span class="post-toc-number">6.5.</span> <span class="post-toc-text"><a href="#5-&#x5B9E;&#x4E60;&#x5C97;&#x4F4D;&#x7684;&#x5730;&#x533A;&#x5206;&#x5E03;&#x60C5;&#x51B5;" class="headerlink" title="5. &#x5B9E;&#x4E60;&#x5C97;&#x4F4D;&#x7684;&#x5730;&#x533A;&#x5206;&#x5E03;&#x60C5;&#x51B5;"></a>5. &#x5B9E;&#x4E60;&#x5C97;&#x4F4D;&#x7684;&#x5730;&#x533A;&#x5206;&#x5E03;&#x60C5;&#x51B5;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-不同城市日薪分布情况"><span class="post-toc-number">6.6.</span> <span class="post-toc-text"><a href="#6-&#x4E0D;&#x540C;&#x57CE;&#x5E02;&#x65E5;&#x85AA;&#x5206;&#x5E03;&#x60C5;&#x51B5;" class="headerlink" title="6. &#x4E0D;&#x540C;&#x57CE;&#x5E02;&#x65E5;&#x85AA;&#x5206;&#x5E03;&#x60C5;&#x51B5;"></a>6. &#x4E0D;&#x540C;&#x57CE;&#x5E02;&#x65E5;&#x85AA;&#x5206;&#x5E03;&#x60C5;&#x51B5;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-岗位要求"><span class="post-toc-number">6.7.</span> <span class="post-toc-text"><a href="#7-&#x5C97;&#x4F4D;&#x8981;&#x6C42;" class="headerlink" title="7. &#x5C97;&#x4F4D;&#x8981;&#x6C42;"></a>7. &#x5C97;&#x4F4D;&#x8981;&#x6C42;</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结论"><span class="post-toc-number">7.</span> <span class="post-toc-text"><a href="#&#x7ED3;&#x8BBA;" class="headerlink" title="&#x7ED3;&#x8BBA;"></a>&#x7ED3;&#x8BBA;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思考和总结"><span class="post-toc-number">8.</span> <span class="post-toc-text"><a href="#&#x601D;&#x8003;&#x548C;&#x603B;&#x7ED3;" class="headerlink" title="&#x601D;&#x8003;&#x548C;&#x603B;&#x7ED3;"></a>&#x601D;&#x8003;&#x548C;&#x603B;&#x7ED3;</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-internship"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数据分析的实习？工资多少？怎么找？这里有你想知道的一切</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-04-25 21:42:09" datetime="2017-04-25T13:42:09.000Z"  itemprop="datePublished">2017-04-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据分析/">数据分析</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-bd6b2de24e2a84b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不同城市日薪分布" title="">
+                </div>
+                <div class="image-caption">不同城市日薪分布</div>
+            </figure>
+<blockquote>
+<p>注：1.本项目所有的代码均放在了我的GitHub上，<a href="https://github.com/clarkyu2016/Data-Analysis-Projects/tree/master/Shixisheng" target="_blank" rel="noopener">戳我戳我</a>进行访问。2. 感谢周同学的指点，补充了关于所属行业的分析以及调整了多项计数的方式。</p>
+</blockquote>
+<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>最近在考虑暑假去哪里找个实习的事情，刚好有朋友在群里转发了一篇文章——<a href="https://zhuanlan.zhihu.com/p/25704059" target="_blank" rel="noopener">数据分析师挣多少钱？“黑”了招聘网站告诉你！</a>读完之后就来了灵感。我也可以对相关的实习岗位做个类似的探索和分析嘛！</p>
+<a id="more"></a>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>本次项目要利用爬虫爬取实习生网上数据分析这一岗位的信息，然后进行一些探索和分析，最后得到一些结论。</p>
+<h2 id="数据来源和数据集"><a href="#数据来源和数据集" class="headerlink" title="数据来源和数据集"></a>数据来源和数据集</h2><p>我利用第三方工具pyspider写了一个简单的爬虫对数据进行爬取。实习生网站的结构比较规范，元素比较少，定位也比较简单，省了不少力气。</p>
+<p>最后得到了下列主要信息——职位名称title，日薪daymoney，每周最少出勤天数days，工作职位描述jobdescribe，持续时间lasting，行业分布industry和城市location。</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>通过实际的数据来解答针对数据分析实习岗位的一些疑惑:</p>
+<ol>
+<li>如果我想要得到一份数据分析实习工作，我需要保证每周出勤几天？</li>
+<li>如果我想要得到一份数据分析实习工作，我需要保证至少实习持续多久？</li>
+<li>整体数据分析实习生日薪分布的情况；</li>
+<li>不同城市数据分析实习生的日薪情况；</li>
+<li>从用人单位的角度看，数据分析实习生应当具备哪些技能？</li>
+<li>(新增)哪些行业需要数据分析师？</li>
+</ol>
+<h2 id="数据清洗和整理"><a href="#数据清洗和整理" class="headerlink" title="数据清洗和整理"></a>数据清洗和整理</h2><p>首先，因为爬虫爬取的是有关“数据”的所有相关实习工作。但是实际上，实习生网在分类的时候并不是特别严谨，很多工作内容稍微涉及点数据的也被划入这个分类。所以需要对现有的数据进行筛选。我的筛选规则是，当工作名称或者工作描述中出现了“数据”和“分析”这两个个词，我们就认为是我们想要的内容。按这条规则进行筛选，1058条数据最终保留616条。</p>
+<p>之后，我对几个字段进行了处理，主要是对日薪daymoney，每周最少出勤天数days，工作职位描述jobdescribe，持续时间lasting，行业industry和城市location做了数据清洗和处理。</p>
+<p><strong>日薪daymoney</strong>：实习生网的日薪格式是固定的，以“150-200元/天”这种形式呈现。为了方便后续分析，我取了日薪的平均数，并且将字符串转成int格式。</p>
+<p><strong>每周最少出勤天数days和持续时间lasting</strong>：去掉不必要的字符仅保留数字，转成int格式。</p>
+<p><strong>行业industry</strong>：因为一个公司可能会有很多行业属性，比如“互联网/金融”，所以我对该字段做了分割，并且储存为列表形式。在后续计算频率时，用单项除以总个数（1/n），比如刚才提到的“互联网/金融”，则互联网出现次数计为0.5，金融也计为0.5。</p>
+<p><strong>城市location</strong>：存在着一个岗位允许多地实习，所以该字段由字符串转变成包含一个个城市的列表，在后面按城市岗位计数分析中，计数方式与行业industry字段的计数方式相似。</p>
+<p><strong>工职位描述jobdescribe</strong>：利用jieba分词，储存为列表格式，为后续画制词云做准备，并且对英文字符进行了大写转换。</p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><h3 id="1-哪些行业需要数据分析实习生？"><a href="#1-哪些行业需要数据分析实习生？" class="headerlink" title="1. 哪些行业需要数据分析实习生？"></a>1. 哪些行业需要数据分析实习生？</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-c119431ff6b32a9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据分析实习生行业分布" title="">
+                </div>
+                <div class="image-caption">数据分析实习生行业分布</div>
+            </figure>
+<p>我试图找出哪些行业对数据分析实习生的需求比较大，并且选取了前十五名的行业。从上述图表不难看出，<strong>互联网</strong>，<strong>计算机</strong>，<strong>金融</strong>，<strong>电子商务</strong>和<strong>企业服务</strong>这五个行业对数据分析实习生的需求量较大，而咨询，生物，医疗等也均有一定的涉及。如果你恰好对这些行业有一定的了解，可能会在一定程度上增大你找到实习工作的机会。</p>
+<h3 id="2-最少出勤天数"><a href="#2-最少出勤天数" class="headerlink" title="2. 最少出勤天数"></a>2. 最少出勤天数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-a2ae277ffc506a19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最少出勤天数/天" title="">
+                </div>
+                <div class="image-caption">最少出勤天数/天</div>
+            </figure>
+<p>大学生是找实习的主要群体，但是由于仍有课业，时间安排比较成问题，我读大学的时候就有同学因为学校每天有课所以放弃实习，也有同学为了实习逃掉了大部分的课。一般来说，一周三天实习，剩下的两天学校上课，这样安排比较合理。但是根据我们的数据分析实习岗位的分析，大多数的公司要求实习生<strong>至少出勤五天</strong>，其实也就是全勤。然后比较多的是至少四天。当然，我们还能发现有些存在着“丧心病狂”的公司，要求实习生至少出勤六天。</p>
+<p>从出勤天数可以得出，假如你打算找一份数据分析的实习工作，你必须要先确保自己的时间充足，因为大多数实习都会要求你从周一干活到周五。当然，如何平衡好实习和学业也是你必须要考虑的。</p>
+<h3 id="3-最短持续时间"><a href="#3-最短持续时间" class="headerlink" title="3. 最短持续时间"></a>3. 最短持续时间</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-b6ab2b4b89d15249.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最短持续时间/月" title="">
+                </div>
+                <div class="image-caption">最短持续时间/月</div>
+            </figure>
+<p>“你能干活多久？”这是对求职者，特别是实习生在时间维度的另一个重要衡量标准。我曾经在一份实习工作中接触招聘实习生的活，领导要求实习生至少能实习两个月以上，如果满足不了这个时间的，就不再考虑，除非你的简历非常非常的优秀。</p>
+<p>我们可以看到，在实习生网上，大多数的数据分析实习岗位都要求实习生能工作<strong>至少三个月</strong>以上，六个月以上紧跟其后，四个月的也比较多。如果你没有做好长时间实习的准备，还是别考虑这类实习了吧。当然你也可以什么都不考虑，在面试的时候告诉面试官你一定能实习较长时间——虽然有点坑对方的感觉。</p>
+<h3 id="4-日薪分布情况"><a href="#4-日薪分布情况" class="headerlink" title="4. 日薪分布情况"></a>4. 日薪分布情况</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-586e693cd9693922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日薪分布" title="">
+                </div>
+                <div class="image-caption">日薪分布</div>
+            </figure>
+<p>从日薪分布图中可以看到，大部分的薪资水平在125元每天左右，还算是一个比较可以接受的薪资水平，如果按月算的话一般情况都是高于当地最低工资。当然也有部分能力较强的实习生可以达到每天400以上的日薪。能力越强，你的上限就越高。</p>
+<h3 id="5-实习岗位的地区分布情况"><a href="#5-实习岗位的地区分布情况" class="headerlink" title="5. 实习岗位的地区分布情况"></a>5. 实习岗位的地区分布情况</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-bdc547019236f4a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实习岗位所在城市分布" title="">
+                </div>
+                <div class="image-caption">实习岗位所在城市分布</div>
+            </figure>
+<p>在这里，我只选取了前十八个的城市，只有这些城市有着数量大于一的数据分析实习生需求。和<a href="https://zhuanlan.zhihu.com/p/25704059" target="_blank" rel="noopener">数据分析师挣多少钱？“黑”了招聘网站告诉你！</a>的结果相类似，北上广、杭州，成都和深圳占据了前六的位置，只不过在这里广州取代了深圳排在第三，杭州第四，成都第五。</p>
+<p>如果你在这里这些城市读大学，那么恭喜你，你比别人有着更多的机会，更有可能找到一份相关的实习工作。当然，你也要清楚的认识到，机会越多不意味着一定是好事，面临的竞争压力也是需要考虑的。如果你不在这些城市，在合理安排时间前提下，可以考虑异地实习，试着往这些城市的相关公司投递简历，说不定就有面试的机会了！</p>
+<h3 id="6-不同城市日薪分布情况"><a href="#6-不同城市日薪分布情况" class="headerlink" title="6. 不同城市日薪分布情况"></a>6. 不同城市日薪分布情况</h3><p>接下来我们把薪酬和城市分布相结合，来看看在哪里做一份数据分析类相关的实习工作会获得更高的薪资。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-bd6b2de24e2a84b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不同城市日薪分布" title="">
+                </div>
+                <div class="image-caption">不同城市日薪分布</div>
+            </figure>
+<p>受到整体数据量的影响，我只选取了前八个城市来分析他们的日薪分布。其中<strong>北京</strong>以150元的平均日薪排名最高，上海和深圳紧随其后，广州、杭州和天津的平均日薪相仿。北京，上海，广州，杭州，深圳和成都都有比较例外的情况，给实习生开出了很高的工资。所以尽量选择上述城市的公司，可能薪水条件会相比其他地方较好。</p>
+<h3 id="7-岗位要求"><a href="#7-岗位要求" class="headerlink" title="7. 岗位要求"></a>7. 岗位要求</h3><p>我利用jieba分词和wordcloud制作了词图，一个词出现的频率越高，他就会在图中越显眼。当然，我事先过滤掉了一些不太重要的，会影响最后结果的stopwords（stopwords也可自行添加或者删除），具体的文本可以在项目文件里查看。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-8ba7eacc2cfcc8ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="岗位技能要求词云" title="">
+                </div>
+                <div class="image-caption">岗位技能要求词云</div>
+            </figure>
+<p>不出所料，<strong>Excel</strong>和<strong>SQL</strong>占据了比较大的部分，我所期待的<strong>python</strong>虽然也出现在了比较显眼的位置，但是没有前两者那么显眼。这也反映了数据分析这个岗位的现状。其实大多数的数据分析工作并不繁琐，可以通过Excel完成，有一种夸张的说法是：学会vlookup，走遍天下都不怕。当然啦，如果你要找一份称心如意的数据分析实习，你需要明确自己的定位，了解自己所学的内容在数据分析这块领域里的位置。比如你学了很长时间的python，结果你找了个对Excel要求极高的工作，既不能锻炼自己的实战能力，也给人家公司带来资源浪费损失。</p>
+<p>除此之外，几个出现频率比较高的有“经验”，<strong>团队</strong>，<strong>沟通</strong>，<strong>运营</strong>。一些数据分析中要用到的工具，除了python之外，都出现的比较少。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ol>
+<li>大多数需要数据分析实习生的岗位分布在互联网，计算机和金融</li>
+<li>大多数的数据实习生岗位都要求你五天都能到岗，并且可持续时间越长越好，一般不低于三个月。如果你能满足这两个条件，就会拥有一项先天优势。</li>
+<li>数据分析实习生大部分的薪资水平维持在100元到150元每天之间，高于或者低于这个数的较少，但不乏有例外。日薪相对来说比较客观，数据分析看起来是个不错的职业方向。</li>
+<li>大多数的数据分析实习岗位集中在北京，上海，广州，杭州和深圳，如果希望找到合适的实习，可以在这些城市尝试寻找。</li>
+<li>数据分析实习要求不如正式工作那么高之高。对工具型技能的要求不高，基本要求对掌握Excel和SQL即可。在非工具的技能方面，强调了经验，沟通和团队的重要性，说明数据分析这项工作需要的是比较全面的素质。</li>
+</ol>
+<h2 id="思考和总结"><a href="#思考和总结" class="headerlink" title="思考和总结"></a>思考和总结</h2><p>本次分析过程灵感来自于<a href="https://zhuanlan.zhihu.com/p/25704059" target="_blank" rel="noopener">数据分析师挣多少钱？“黑”了招聘网站告诉你！</a>，但由于选取对象有些不同，获取的字段相对较少，能够分析的内容有所局限。而且由于受到实习生网本身就是一家互联网企业的影响，在它上面发布招聘信息的对象更多的是互联网企业，这就会对数据，注入行业分布情况产生影响。另外，对于数据清洗的尺度还是存有些许疑虑。希望以后能对数据分析这个工作进行更加全面的研究分析。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-05-20T20:45:38.403Z" itemprop="dateUpdated">2017-05-21 04:45:38</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://wcbro.com">
+            <img src="/img/avatar.jpg" alt="Clark Yu">
+            Clark Yu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wcbro.com/2017/04/25/internship/&title=《数据分析的实习？工资多少？怎么找？这里有你想知道的一切》 — 厕所兄弟&pic=http://wcbro.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wcbro.com/2017/04/25/internship/&title=《数据分析的实习？工资多少？怎么找？这里有你想知道的一切》 — 厕所兄弟&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wcbro.com/2017/04/25/internship/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据分析的实习？工资多少？怎么找？这里有你想知道的一切》 — 厕所兄弟&url=http://wcbro.com/2017/04/25/internship/&via=http://wcbro.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wcbro.com/2017/04/25/internship/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/09/lyrics/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/12/31/2016/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2016年小结&amp;展望</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0v5vcUWN59lgzAGNTg9Ucb15-gzGzoHsz",
+            appKey: "iI0aRHtgT6myUnkfsSc3aJGR",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Clark Yu &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wcbro.com/2017/04/25/internship/&title=《数据分析的实习？工资多少？怎么找？这里有你想知道的一切》 — 厕所兄弟&pic=http://wcbro.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wcbro.com/2017/04/25/internship/&title=《数据分析的实习？工资多少？怎么找？这里有你想知道的一切》 — 厕所兄弟&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wcbro.com/2017/04/25/internship/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据分析的实习？工资多少？怎么找？这里有你想知道的一切》 — 厕所兄弟&url=http://wcbro.com/2017/04/25/internship/&via=http://wcbro.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wcbro.com/2017/04/25/internship/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://wcbro.com/2017/04/25/internship/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '客观别走！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '大吉大利，今晚吃鸡';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

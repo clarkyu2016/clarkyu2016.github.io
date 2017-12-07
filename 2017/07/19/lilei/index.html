@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析 | 厕所兄弟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据分析,python,爬虫">
+    <meta name="description" content="更新于2017年6月26日，在第二部分数据探索时，根据@Radon的建议，为了消除极值对结果的影响，在统计比例前去除了离群点(outliers)的用户。  前言是的，继《摆渡人》后豆瓣又被《李雷和韩梅梅》制作方控诉了。  电影《李雷和韩梅梅》出品人陈永宁发出的公开信称，《李雷和韩梅梅》在上映后获得诸多影评人、著名专家学者如饶曙光、尹鸿、周黎明、史航等人的认可，已经获得了三千万票房，但在“阿北”“">
+<meta name="keywords" content="数据分析,python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析">
+<meta property="og:url" content="http://wcbro.com/2017/07/19/lilei/index.html">
+<meta property="og:site_name" content="厕所兄弟">
+<meta property="og:description" content="更新于2017年6月26日，在第二部分数据探索时，根据@Radon的建议，为了消除极值对结果的影响，在统计比例前去除了离群点(outliers)的用户。  前言是的，继《摆渡人》后豆瓣又被《李雷和韩梅梅》制作方控诉了。  电影《李雷和韩梅梅》出品人陈永宁发出的公开信称，《李雷和韩梅梅》在上映后获得诸多影评人、著名专家学者如饶曙光、尹鸿、周黎明、史航等人的认可，已经获得了三千万票房，但在“阿北”“">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-1f57f6de3c6e0bb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-1a96224c15c835ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-6edab7618ef8b3cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-aae2ac15e934393f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-c9ee2c8c394224c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-7447aeae56d4664d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-76cfafc1d44453ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-e16daa93e873dfb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-b369144b0c2ab25d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-b2ba422cf4d9bc70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-b118192cb09cac45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-c7ce6bff6c5d79f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-40cd5145c5b80dfe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-4e5eea716bf08c2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-2c9517fd04328709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-a5c0ce9a205cf32e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-098c4cc5ac699fef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-9b15317eadb46963.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-19T20:26:17.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析">
+<meta name="twitter:description" content="更新于2017年6月26日，在第二部分数据探索时，根据@Radon的建议，为了消除极值对结果的影响，在统计比例前去除了离群点(outliers)的用户。  前言是的，继《摆渡人》后豆瓣又被《李雷和韩梅梅》制作方控诉了。  电影《李雷和韩梅梅》出品人陈永宁发出的公开信称，《李雷和韩梅梅》在上映后获得诸多影评人、著名专家学者如饶曙光、尹鸿、周黎明、史航等人的认可，已经获得了三千万票房，但在“阿北”“">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8604-1f57f6de3c6e0bb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Clark Yu</h5>
+          <a href="mailto:clarkyu1993@outlook.com" title="clarkyu1993@outlook.com" class="mail">clarkyu1993@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-ABOUT"></i>
+                ABOUT
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/others"  >
+                <i class="icon icon-lg icon-projects"></i>
+                PROJECTS
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-19T13:20:25.000Z" itemprop="datePublished" class="page-time">
+  2017-07-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据分析/">数据分析</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据搜集及处理"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x641C;&#x96C6;&#x53CA;&#x5904;&#x7406;" class="headerlink" title="&#x6570;&#x636E;&#x641C;&#x96C6;&#x53CA;&#x5904;&#x7406;"></a>&#x6570;&#x636E;&#x641C;&#x96C6;&#x53CA;&#x5904;&#x7406;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题一：豆瓣是否有故意隐藏评分高的评论而展示评分低的评论的行为？"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#&#x95EE;&#x9898;&#x4E00;&#xFF1A;&#x8C46;&#x74E3;&#x662F;&#x5426;&#x6709;&#x6545;&#x610F;&#x9690;&#x85CF;&#x8BC4;&#x5206;&#x9AD8;&#x7684;&#x8BC4;&#x8BBA;&#x800C;&#x5C55;&#x793A;&#x8BC4;&#x5206;&#x4F4E;&#x7684;&#x8BC4;&#x8BBA;&#x7684;&#x884C;&#x4E3A;&#xFF1F;" class="headerlink" title="&#x95EE;&#x9898;&#x4E00;&#xFF1A;&#x8C46;&#x74E3;&#x662F;&#x5426;&#x6709;&#x6545;&#x610F;&#x9690;&#x85CF;&#x8BC4;&#x5206;&#x9AD8;&#x7684;&#x8BC4;&#x8BBA;&#x800C;&#x5C55;&#x793A;&#x8BC4;&#x5206;&#x4F4E;&#x7684;&#x8BC4;&#x8BBA;&#x7684;&#x884C;&#x4E3A;&#xFF1F;"></a>&#x95EE;&#x9898;&#x4E00;&#xFF1A;&#x8C46;&#x74E3;&#x662F;&#x5426;&#x6709;&#x6545;&#x610F;&#x9690;&#x85CF;&#x8BC4;&#x5206;&#x9AD8;&#x7684;&#x8BC4;&#x8BBA;&#x800C;&#x5C55;&#x793A;&#x8BC4;&#x5206;&#x4F4E;&#x7684;&#x8BC4;&#x8BBA;&#x7684;&#x884C;&#x4E3A;&#xFF1F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题二：究竟是哪些人打了分？"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#&#x95EE;&#x9898;&#x4E8C;&#xFF1A;&#x7A76;&#x7ADF;&#x662F;&#x54EA;&#x4E9B;&#x4EBA;&#x6253;&#x4E86;&#x5206;&#xFF1F;" class="headerlink" title="&#x95EE;&#x9898;&#x4E8C;&#xFF1A;&#x7A76;&#x7ADF;&#x662F;&#x54EA;&#x4E9B;&#x4EBA;&#x6253;&#x4E86;&#x5206;&#xFF1F;"></a>&#x95EE;&#x9898;&#x4E8C;&#xFF1A;&#x7A76;&#x7ADF;&#x662F;&#x54EA;&#x4E9B;&#x4EBA;&#x6253;&#x4E86;&#x5206;&#xFF1F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题三：究竟有没有非正常评分用户混在评论群体中？"><span class="post-toc-number">5.</span> <span class="post-toc-text"><a href="#&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x7A76;&#x7ADF;&#x6709;&#x6CA1;&#x6709;&#x975E;&#x6B63;&#x5E38;&#x8BC4;&#x5206;&#x7528;&#x6237;&#x6DF7;&#x5728;&#x8BC4;&#x8BBA;&#x7FA4;&#x4F53;&#x4E2D;&#xFF1F;" class="headerlink" title="&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x7A76;&#x7ADF;&#x6709;&#x6CA1;&#x6709;&#x975E;&#x6B63;&#x5E38;&#x8BC4;&#x5206;&#x7528;&#x6237;&#x6DF7;&#x5728;&#x8BC4;&#x8BBA;&#x7FA4;&#x4F53;&#x4E2D;&#xFF1F;"></a>&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x7A76;&#x7ADF;&#x6709;&#x6CA1;&#x6709;&#x975E;&#x6B63;&#x5E38;&#x8BC4;&#x5206;&#x7528;&#x6237;&#x6DF7;&#x5728;&#x8BC4;&#x8BBA;&#x7FA4;&#x4F53;&#x4E2D;&#xFF1F;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结和局限性"><span class="post-toc-number">6.</span> <span class="post-toc-text"><a href="#&#x603B;&#x7ED3;&#x548C;&#x5C40;&#x9650;&#x6027;" class="headerlink" title="&#x603B;&#x7ED3;&#x548C;&#x5C40;&#x9650;&#x6027;"></a>&#x603B;&#x7ED3;&#x548C;&#x5C40;&#x9650;&#x6027;</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-lilei"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-19 21:20:25" datetime="2017-07-19T13:20:25.000Z"  itemprop="datePublished">2017-07-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据分析/">数据分析</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>更新于2017年6月26日，在第二部分数据探索时，根据@<a href="https://www.zhihu.com/people/radon" target="_blank" rel="noopener">Radon</a>的建议，为了消除极值对结果的影响，在统计比例前去除了离群点(outliers)的用户。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>是的，继《摆渡人》后豆瓣又被《李雷和韩梅梅》制作方控诉了。</p>
+<blockquote>
+<p>电影《李雷和韩梅梅》出品人陈永宁发出的公开信称，《李雷和韩梅梅》在上映后获得诸多影评人、著名专家学者如饶曙光、尹鸿、周黎明、史航等人的认可，已经获得了三千万票房，但在“阿北”“领导下的豆瓣”该片得分只有4.2分，陈永宁表示“已经出离愤怒”，他认为豆瓣已经成为“绑票和敲诈的现场”。</p>
+</blockquote>
+<p>作为豆瓣7年忠实用户，我觉得这个帽子扣的很不讲道理呀，出于探索精神，我去看了下这部电影的豆瓣页面。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-1f57f6de3c6e0bb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="李雷和韩梅梅电影豆瓣页面" title="">
+                </div>
+                <div class="image-caption">李雷和韩梅梅电影豆瓣页面</div>
+            </figure>
+<p>粗粗一看，这不就是很典型的被誉为“绝世烂片”的L型电影嘛！<br><a id="more"></a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-1a96224c15c835ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="通过评分图形判断豆瓣评分" title="">
+                </div>
+                <div class="image-caption">通过评分图形判断豆瓣评分</div>
+            </figure></p>
+<p>当然，只凭着评分形状来判断一部电影好坏也是比较片面，我想从数据分析的角度，从尽量客观的角度来对《李雷和韩梅梅》的评分做一个研究，希望能证明这部电影是否有恶意带节奏或者大量非正常用户评分评论的情况，活生生把一部优秀的电影刷成了绝世烂片。</p>
+<h2 id="数据搜集及处理"><a href="#数据搜集及处理" class="headerlink" title="数据搜集及处理"></a>数据搜集及处理</h2><p>首先，应该从具体的评分和评分用户入手。因此，我决定抓取我们所能看到的评论信息。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-6edab7618ef8b3cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="爬取界面" title="">
+                </div>
+                <div class="image-caption">爬取界面</div>
+            </figure>
+<p>截至到我开始爬数据的时候，在一万多的用户里有5938人撰写了观后的短评。所以我开始抓取这些人的评论以及个人信息。数据包含的字段如下（后来补上了一个评论时间）：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-aae2ac15e934393f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="爬取结果" title="">
+                </div>
+                <div class="image-caption">爬取结果</div>
+            </figure>
+<p>这其实是一个两层抓取，首先抓取在电影页面上的评论，然后再针对每一条评论，转到该评论用户的个人页面，抓取他的其他信息。最后得到了1838条数据，也就是说普通用户在网站上能看到的关于这部电影的评论只有1838条，还有一部分是被豆瓣给隐藏了。</p>
+<h2 id="问题一：豆瓣是否有故意隐藏评分高的评论而展示评分低的评论的行为？"><a href="#问题一：豆瓣是否有故意隐藏评分高的评论而展示评分低的评论的行为？" class="headerlink" title="问题一：豆瓣是否有故意隐藏评分高的评论而展示评分低的评论的行为？"></a>问题一：豆瓣是否有故意隐藏评分高的评论而展示评分低的评论的行为？</h2><p>在1838条数据中，只有1765条数据是有打分，剩下的是评论了但是没有打分，我对者1765条数据计算了所占比例，如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-c9ee2c8c394224c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="获取数据中的打分分布" title="">
+                </div>
+                <div class="image-caption">获取数据中的打分分布</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-7447aeae56d4664d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="整体打分分布" title="">
+                </div>
+                <div class="image-caption">整体打分分布</div>
+            </figure>
+<p>我们可以看出来，在我们所能看到的短评中，5星人数有9%，4星人数有7%，而1星所占的比率降到了50%。也就是说，在短评展示页面里，在我们所能看到的有限的短评里，3星及以上评论的人数的比例是超过了整体的评分情况。第一个问题的答案也就不言而喻。</p>
+<p>另外如果按照短评打分情况来算电影评分的话，李雷和韩梅梅应该可以再稍微高一点，整体分会在3-4分左右。<strong>我觉得公开信中提到的4.2分是比较接近短评的整体评分。</strong></p>
+<h2 id="问题二：究竟是哪些人打了分？"><a href="#问题二：究竟是哪些人打了分？" class="headerlink" title="问题二：究竟是哪些人打了分？"></a>问题二：究竟是哪些人打了分？</h2><p>根据用户信息，在去掉离群点后的用户中，平均每个人标记“看过”电影63部，标记“想看”电影3部，平均注册时间为 2015年4月29日。针对不同打分等级以及不同的特征，得到如下图表：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-76cfafc1d44453ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="看过" title="">
+                </div>
+                <div class="image-caption">看过</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-e16daa93e873dfb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="想看" title="">
+                </div>
+                <div class="image-caption">想看</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-b369144b0c2ab25d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注册日期" title="">
+                </div>
+                <div class="image-caption">注册日期</div>
+            </figure>
+<p>从以上三张图表我们可以看出，其中打5星和4星的用户，无论是“看过”，“想看”，还是“注册日期”上，达到所有用户中平均水平的人数比例都相当之低。由此可得，在5星和4星评分中，充斥着<strong>“标记影片数量少，注册日期晚”</strong>的用户。而反过来看打分低的用户，其中打2星的用户有42% 的人所标记的“看过”电影数量高于整体平均水平，五个档次中比例最高，其次是3星和1星。值得注意的是，在注册时间上，打1星的用户注册时间早于2015年4月29日的达到了40%，和5星的最低比例21%形成了强烈的反差，这类用户属于<strong>“注册时间早，标记影片数量多”</strong>，的确都较多集中在了低分档。为了更加直观表现用户分类，我们可以看下面这张数据透视图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-b2ba422cf4d9bc70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据透视图" title="">
+                </div>
+                <div class="image-caption">数据透视图</div>
+            </figure>
+<p>此时，我们大概知道给《李雷和韩梅梅》这部电影评分的1765个用户是怎么样子的了：打五星的用户，以豆瓣新用户为主，他们注册时间比较短，使用豆瓣次数比较少，标记“看过”和“想看”的电影也比较少。打一星和二星的用户以豆瓣老用户为主，豆瓣重度使用者，经常标记看过的电影，部分用户“看过”电影的数量惊人。</p>
+<p>不过，由于在制片方控诉豆瓣后，有部分义愤填膺的用户涌入评论区，给电影打1分出气，所以1星用户情况可能和现实有点差距，个人认为2星到4星分布的用户特征比较符合实际的情况（即，如果没有这件“控诉”事，这部电影自然的打分情况）</p>
+<h2 id="问题三：究竟有没有非正常评分用户混在评论群体中？"><a href="#问题三：究竟有没有非正常评分用户混在评论群体中？" class="headerlink" title="问题三：究竟有没有非正常评分用户混在评论群体中？"></a>问题三：究竟有没有非正常评分用户混在评论群体中？</h2><p>豆瓣CEO在上一次评分风波中写了一篇文章，<a href="https://blog.douban.com/douban/2015/12/18/3060/" target="_blank" rel="noopener">豆瓣电影评分八问</a>，比较客观的介绍了豆瓣目前打分机制以及对水军的预防机制。</p>
+<blockquote>
+<p>水军是有的，但豆瓣评分很难刷得动。<br>豆瓣这两年的原则是“所有能判断属于非正常评分的一概不算”，不分高低贵贱颜色。</p>
+</blockquote>
+<p>这时候我就在想，我们所能看到的1765条评论中，是否如豆瓣所说，非正常评分评论一概不算，不会显示出来。为此，我们需要利用数据分析的方式对其做一个简单粗略的检测。</p>
+<p>为了检测出是否有“非正常评分用户”的存在，我给他们下了大致的定义（我所理解的定义），比如只看过一两部电影，其中就包括《李雷和韩梅梅》，或者注册时间很短，豆瓣除了一部电影的内容，再无其他，没有“想看”标记，豆瓣活跃度极低，或者是好几个评论时间出现在差不多的时候而且都给了最高分或者最低分，还有一部分就是恶意打分，喷子这类。比如这些：</p>
+<ol>
+<li><p>这是一个我认为比较有代表性的“非正常评分用户”，两个月注册无动态，看过和想看的内容有重复，评论矛盾。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-b118192cb09cac45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="非正常评分用户1" title="">
+                </div>
+                <div class="image-caption">非正常评分用户1</div>
+            </figure>
+</li>
+<li><p>这是另外一个疑似“非正常评分用户”，注册当天即评论，而且评论标点符号使用诡异。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-c7ce6bff6c5d79f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="非正常评分用户2" title="">
+                </div>
+                <div class="image-caption">非正常评分用户2</div>
+            </figure>
+</li>
+<li><p>这也是另外一个“非正常评分用户”，注册即评论，无头像，除了这部电影外没有其他内容。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-40cd5145c5b80dfe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正常评分用户3" title="">
+                </div>
+                <div class="image-caption">正常评分用户3</div>
+            </figure>
+</li>
+<li><p>像这个就是属于正常评分用户，虽然给这部电影打了五星高分，但是从其他信息我们还是能看出来他并不是“非正常评分用户”</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-4e5eea716bf08c2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正常评分用户1" title="">
+                </div>
+                <div class="image-caption">正常评分用户1</div>
+            </figure>
+</li>
+<li><p>这个虽然给电影打了五分，但是根据注册时间，注册名字，观影数量来看，这是一个真实的用户，还是李易峰的粉丝……</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-2c9517fd04328709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正常评分用户2" title="">
+                </div>
+                <div class="image-caption">正常评分用户2</div>
+            </figure>
+</li>
+</ol>
+<p>当然我不可能一个个去识别识别水军，这时候就要<strong>机器学习</strong>出马了！说到机器学习，我想起了下面这张图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-a5c0ce9a205cf32e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不同人眼中的机器学习" title="">
+                </div>
+                <div class="image-caption">不同人眼中的机器学习</div>
+            </figure>
+<p><strong>具体怎么做呢？</strong>（注意：本操作不具有科学性，仅供参考）</p>
+<p>我随机从1765个样本中随机抽取了200个样本（其实并不是随机，由于非正常用户数量比例肯定较少，我人工加了一些预判为非正常用户），人工对他们进行了是否为正常用户的判断，主要将每个样本分为“正常评分用户”和“非正常评分用户”两类，不过对于那些模棱两可我实在无法判断的用户，将其标记为“疑似非正常评分用户”，就这样我完成了200个样本的构建，用于训练模型。</p>
+<p>在训练前，我选取了四个特征值，分别是“看过”的电影数，“想看”的电影数，“注册日期”和“评论日期”。并且对数据做了标准化。</p>
+<p>这次用到的模型是决策树模型，200个样本我选取了120个作为测试集，80个作为训练集，拟合了一下，准确率达到了90.6基本可以了，然后应用的到了所有的数据集，最后结果如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-098c4cc5ac699fef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="机器学习结果" title="">
+                </div>
+                <div class="image-caption">机器学习结果</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-9b15317eadb46963.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1星和5星对比" title="">
+                </div>
+                <div class="image-caption">1星和5星对比</div>
+            </figure>
+<p>从结果来看，的确还是有“非正常评分用户”混迹在评分中，不过如果按照我的定义，给电影打1星的“非正常评分用户”其实是小于给电影打5星的“非正常评分用户”，也就是说其实绝大部分的打分都是用户看法的一个实际反映。</p>
+<p>此外，还有一个值得注意的是根据这个结果，在打分为2星的用户中，非正常评分用户和疑似非正常用户所占的比例最小，这似乎也从另一个方面印证了前面我所提到的“打两星的用户是比较正常的”。</p>
+<h2 id="总结和局限性"><a href="#总结和局限性" class="headerlink" title="总结和局限性"></a>总结和局限性</h2><p>通过对三个问题的分析，基本可以坐实豆瓣没有故意对这部电影进行打压，以及也没有大规模的非正常用户对电影评分进行影响，评分的结果还是比较接近豆瓣用户对这部电影的看法——烂片无疑。</p>
+<p>本次数据分析简单应用了机器学习，其实还是有很多水分，比如特征值比较少，没有很强的说服力，不过这也给之后的研究提供了方法，我们可以通过提取用户个人主页一切所能提取的特征，然后再对其进行身份识别，最后这个识别水军的模型肯定是越来越准确。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-07-19T20:26:17.493Z" itemprop="dateUpdated">2017-07-20 04:26:17</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://wcbro.com">
+            <img src="/img/avatar.jpg" alt="Clark Yu">
+            Clark Yu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wcbro.com/2017/07/19/lilei/&title=《烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析》 — 厕所兄弟&pic=http://wcbro.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wcbro.com/2017/07/19/lilei/&title=《烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析》 — 厕所兄弟&source=
+更新于2017年6月26日，在第二部分数据探索时，根据@Radon的建议，为了消除极值对结果的影响，在统计比例前去除了离群点(outliers)的用户。..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wcbro.com/2017/07/19/lilei/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析》 — 厕所兄弟&url=http://wcbro.com/2017/07/19/lilei/&via=http://wcbro.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wcbro.com/2017/07/19/lilei/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/18/machine-learning2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">机器学习笔记（2）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0v5vcUWN59lgzAGNTg9Ucb15-gzGzoHsz",
+            appKey: "iI0aRHtgT6myUnkfsSc3aJGR",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Clark Yu &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wcbro.com/2017/07/19/lilei/&title=《烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析》 — 厕所兄弟&pic=http://wcbro.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wcbro.com/2017/07/19/lilei/&title=《烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析》 — 厕所兄弟&source=
+更新于2017年6月26日，在第二部分数据探索时，根据@Radon的建议，为了消除极值对结果的影响，在统计比例前去除了离群点(outliers)的用户。..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wcbro.com/2017/07/19/lilei/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《烂片还怪豆瓣“绑票和敲诈”？——对电影《李雷和韩梅梅》豆瓣评分的分析》 — 厕所兄弟&url=http://wcbro.com/2017/07/19/lilei/&via=http://wcbro.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wcbro.com/2017/07/19/lilei/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://wcbro.com/2017/07/19/lilei/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '客观别走！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '大吉大利，今晚吃鸡';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

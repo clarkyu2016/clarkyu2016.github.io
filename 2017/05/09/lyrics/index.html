@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌 | 厕所兄弟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据分析,python,爬虫">
+    <meta name="description" content="前言为了找到最伤感的一首歌，我分析了王力宏，周杰伦，林俊杰和潘玮柏32万字歌词。                                                                                              最喜欢的季节              本项目受到《我分析了42万字歌词，就为了搞清楚民谣歌手们在唱些什么》一文的启发以及下面的这幅">
+<meta name="keywords" content="数据分析,python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌">
+<meta property="og:url" content="http://wcbro.com/2017/05/09/lyrics/index.html">
+<meta property="og:site_name" content="厕所兄弟">
+<meta property="og:description" content="前言为了找到最伤感的一首歌，我分析了王力宏，周杰伦，林俊杰和潘玮柏32万字歌词。                                                                                              最喜欢的季节              本项目受到《我分析了42万字歌词，就为了搞清楚民谣歌手们在唱些什么》一文的启发以及下面的这幅">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-1bd1eccab36a436f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-d833b42a6f9d6936.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-c21e465b35166596.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-ef0b1413090c5971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-3eb63eaa21f2ab92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-a25bbf5d6996d29a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-7630c2ebcc167e19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-819d694d81a329f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-59b4d61e810d67db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-ea173632e65a3e2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-af2550a8f87e6dd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-92e2c915f97fc3cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-0dd3cab4104a2af4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-03caf7c349ae97d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-a03ce3aa0407291d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-f67798705124edfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-822c658af2396873.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-b7c90a122ea3c75b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-337a74eca37c0fa3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-590106e3c4f93461.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8604-1bd1eccab36a436f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-20T20:34:03.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌">
+<meta name="twitter:description" content="前言为了找到最伤感的一首歌，我分析了王力宏，周杰伦，林俊杰和潘玮柏32万字歌词。                                                                                              最喜欢的季节              本项目受到《我分析了42万字歌词，就为了搞清楚民谣歌手们在唱些什么》一文的启发以及下面的这幅">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8604-1bd1eccab36a436f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Clark Yu</h5>
+          <a href="mailto:clarkyu1993@outlook.com" title="clarkyu1993@outlook.com" class="mail">clarkyu1993@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-ABOUT"></i>
+                ABOUT
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/others"  >
+                <i class="icon icon-lg icon-projects"></i>
+                PROJECTS
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-09T03:08:35.000Z" itemprop="datePublished" class="page-time">
+  2017-05-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据分析/">数据分析</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据来源"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x6570;&#x636E;&#x6765;&#x6E90;" class="headerlink" title="&#x6570;&#x636E;&#x6765;&#x6E90;"></a>&#x6570;&#x636E;&#x6765;&#x6E90;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#情感分析"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#&#x60C5;&#x611F;&#x5206;&#x6790;" class="headerlink" title="&#x60C5;&#x611F;&#x5206;&#x6790;"></a>&#x60C5;&#x611F;&#x5206;&#x6790;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#王力宏"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"><a href="#&#x738B;&#x529B;&#x5B8F;" class="headerlink" title="&#x738B;&#x529B;&#x5B8F;"></a>&#x738B;&#x529B;&#x5B8F;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#周杰伦"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"><a href="#&#x5468;&#x6770;&#x4F26;" class="headerlink" title="&#x5468;&#x6770;&#x4F26;"></a>&#x5468;&#x6770;&#x4F26;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#林俊杰"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"><a href="#&#x6797;&#x4FCA;&#x6770;" class="headerlink" title="&#x6797;&#x4FCA;&#x6770;"></a>&#x6797;&#x4FCA;&#x6770;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#潘玮柏"><span class="post-toc-number">3.4.</span> <span class="post-toc-text"><a href="#&#x6F58;&#x73AE;&#x67CF;" class="headerlink" title="&#x6F58;&#x73AE;&#x67CF;"></a>&#x6F58;&#x73AE;&#x67CF;</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#趣味探索"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#&#x8DA3;&#x5473;&#x63A2;&#x7D22;" class="headerlink" title="&#x8DA3;&#x5473;&#x63A2;&#x7D22;"></a>&#x8DA3;&#x5473;&#x63A2;&#x7D22;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#你我还是她？"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"><a href="#&#x4F60;&#x6211;&#x8FD8;&#x662F;&#x5979;&#xFF1F;" class="headerlink" title="&#x4F60;&#x6211;&#x8FD8;&#x662F;&#x5979;&#xFF1F;"></a>&#x4F60;&#x6211;&#x8FD8;&#x662F;&#x5979;&#xFF1F;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#“爱”你有多深"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"><a href="#&#x201C;&#x7231;&#x201D;&#x4F60;&#x6709;&#x591A;&#x6DF1;" class="headerlink" title="&#x201C;&#x7231;&#x201D;&#x4F60;&#x6709;&#x591A;&#x6DF1;"></a>&#x201C;&#x7231;&#x201D;&#x4F60;&#x6709;&#x591A;&#x6DF1;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四个人最喜欢的季节？"><span class="post-toc-number">4.3.</span> <span class="post-toc-text"><a href="#&#x56DB;&#x4E2A;&#x4EBA;&#x6700;&#x559C;&#x6B22;&#x7684;&#x5B63;&#x8282;&#xFF1F;" class="headerlink" title="&#x56DB;&#x4E2A;&#x4EBA;&#x6700;&#x559C;&#x6B22;&#x7684;&#x5B63;&#x8282;&#xFF1F;"></a>&#x56DB;&#x4E2A;&#x4EBA;&#x6700;&#x559C;&#x6B22;&#x7684;&#x5B63;&#x8282;&#xFF1F;</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结与展望"><span class="post-toc-number">5.</span> <span class="post-toc-text"><a href="#&#x603B;&#x7ED3;&#x4E0E;&#x5C55;&#x671B;" class="headerlink" title="&#x603B;&#x7ED3;&#x4E0E;&#x5C55;&#x671B;"></a>&#x603B;&#x7ED3;&#x4E0E;&#x5C55;&#x671B;</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-lyrics"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-09 11:08:35" datetime="2017-05-09T03:08:35.000Z"  itemprop="datePublished">2017-05-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据分析/">数据分析</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了找到最伤感的一首歌，我分析了王力宏，周杰伦，林俊杰和潘玮柏32万字歌词。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-1bd1eccab36a436f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最喜欢的季节" title="">
+                </div>
+                <div class="image-caption">最喜欢的季节</div>
+            </figure>
+<p>本项目受到<a href="https://www.huxiu.com/article/180310.html" target="_blank" rel="noopener">《我分析了42万字歌词，就为了搞清楚民谣歌手们在唱些什么》</a>一文的启发以及下面的这幅图，一张让我更加确定了“已经年纪不小了”这个残酷事实的图。<br><a id="more"></a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-d833b42a6f9d6936.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017年三月份最受欢迎华语男歌手" title="">
+                </div>
+                <div class="image-caption">2017年三月份最受欢迎华语男歌手</div>
+            </figure></p>
+<p>说实话，这上面的歌手我大概只认识一半，听过的歌更是少的可怜，大概只有《青春修炼手册》，《演员》还有张杰翻唱的《街角的祝福》。</p>
+<p>关于华语男歌手的认识应该是停在初中了吧。那时火的是<strong>周杰伦，王力宏，林俊杰和潘玮柏</strong>——</p>
+<p>我们班几个男生因为经常唱他们的歌有了诸如“宗杰伦”，“温俊杰”，“鱼力宏”的外号；</p>
+<p>我们全寝室在社会实践表演会上合唱了一首《枫》，由于有我这种跑调天王的存在，我们没有拿到最佳歌曲节目奖；</p>
+<p>有一个学期在操场捡了一个用电池的mp3，只有512MB。我们在电脑课上把歌拷进去，然后每晚轮流听，听了好久；</p>
+<p>由于他们的歌都烂熟于心，所以有几个同学就养成了一个不良爱好——改编歌词，往往会改得很恶俗，《菊花残》这种还算普通，印象中最恶俗的歌就是——《腋毛海》。</p>
+<p>。<br>。<br>。</p>
+<p>好了，虽然类似的回忆还有很多，但就此打住吧，毕竟这篇文章的主要目的，是从数据分析的角度对王力宏，周杰伦，林俊杰和潘玮柏的歌词进行分析。主要<strong>研究几个有趣的问题</strong>，比如：</p>
+<ol>
+<li>他们最伤感的（情绪消极）的十首歌是哪些？</li>
+<li>他们最欢乐的（情绪积极）的十首歌是哪些？</li>
+<li>总的来说，哪个人的歌词最伤感？</li>
+<li>总的来说，哪个人的歌词最欢快！</li>
+<li>他们最喜欢季节是什么？</li>
+<li>他们最常用“你”，“我”还是“她”？</li>
+<li>谁最会说“爱”字？</li>
+</ol>
+<p>当然，因为歌词和歌手存在着一定程度的割裂，有些作词并不是歌手本身，但本次研究不考虑这些问题。换个角度想，这些歌是被歌手不断演唱而知名，所以里面肯定蕴含了歌手本身的情感和认知，不然也不会唱火，你说是吧？（突然自己感觉自己说的很有道理，嗯）</p>
+<h2 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h2><p>本次数据来源于百度音乐。我用第三方工具pyspider写了一个爬虫自动抓取了1000多条数据。说实话，从百度音乐抓下来的歌词数据格式不是特别好看，乱糟糟，比如歌词开头两三行介绍歌手、作曲、作词的顺序不太一样。这让我想起了以前用酷狗听歌的时候，歌词都是云端匹配，良莠不齐。很多歌词前面都会带着一个QQ号，大概是制作这个歌词的人，有的甚至会写一两段话，诸如“XXX，你要知道我一直很爱你”之类的话，有点莫名其妙。但是，因为一些版权的原因，百度音乐里的歌是最全的，所以只好用它。最终，我获得的数据包含了以下字段：</p>
+<p>专辑名album，歌手singer, 歌词lyrics 和歌名title</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-c21e465b35166596.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据表" title="">
+                </div>
+                <div class="image-caption">数据表</div>
+            </figure>
+<p>歌词部分共有32万个字符。由于有些歌曲存在着歌词缺失，不得不做处理。在数据清洗之后的有效歌曲数如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-ef0b1413090c5971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有效歌曲数" title="">
+                </div>
+                <div class="image-caption">有效歌曲数</div>
+            </figure>
+<p>接着就开始今天的重头戏——情感分析。</p>
+<h2 id="情感分析"><a href="#情感分析" class="headerlink" title="情感分析"></a>情感分析</h2><p>在情感分析中，我用到了<a href="http://bosonnlp.com/" target="_blank" rel="noopener">bosonnlp(玻森中文语义平台)</a>这个工具，直接可以在python调用对字符串进行情感分析，免费用户只能一天五百次的调用次数，不过已经够用了（我注册了三四个号）。</p>
+<p>在bosonnlp工具中，情感分析的结果由两部分构成，积极情绪分和消极情绪分，两者加起来等于1。当我们把它应用到歌词里时，积极情绪分越高，一般就认为这首歌比较正能量，欢快，高兴，活泼；如果消极情绪分高，则说明这首歌比较带有负面情绪，悲伤，难过，消沉。</p>
+<p>在整体情感分析前，我挑了一些歌对即将用到的工具进行了测试。在下面表格sentiment一栏中，左侧的数字代表着积极情绪分，右侧的数字代表着消极情绪分。</p>
+<p>首先测试的是周杰伦的《安静》，结果测出来是绝对的消极，似乎还不错：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-3eb63eaa21f2ab92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="《安静》" title="">
+                </div>
+                <div class="image-caption">《安静》</div>
+            </figure>
+<p>再来一首《阳光宅男》，结果是绝对的积极，符合预期：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-a25bbf5d6996d29a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="《阳光宅男》" title="">
+                </div>
+                <div class="image-caption">《阳光宅男》</div>
+            </figure>
+<p>最后来测一首潘玮柏的《我对天空说》，这首歌真的悲伤啦，看来这个工具也能正确的识别：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-7630c2ebcc167e19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="《我对天空说》" title="">
+                </div>
+                <div class="image-caption">《我对天空说》</div>
+            </figure>
+<p>在测试完这三个后我就放心的开始整体探索（其实我还测了很多），毕竟人家都把这个工具出来卖了，肯定是有很高的准确性。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-819d694d81a329f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正面情绪" title="">
+                </div>
+                <div class="image-caption">正面情绪</div>
+            </figure>
+<p>最后得到了一个整体的结果，我发现四位歌手中，积极情绪分数最高的是王力宏，其次是林俊杰，潘玮柏第三，周杰伦最低。因为互加为1，消极情绪的分数的排名就刚好相反。</p>
+<p>周杰伦的歌之所以积极情绪最低，消极情绪最高可能是有两个原因造成的：1）他的歌很多本身歌词就比较悲伤 2）周杰伦的歌总体数量比其他三位要多，而他们大部分的歌都是属于情歌，而情歌呢有大部分都很悲伤，所以就会拉低这积极情绪的评分。</p>
+<p>至于王力宏最“正能量”呢，这个还是有点出乎我的意料。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8604-59b4d61e810d67db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="负面情绪]"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-ea173632e65a3e2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="消极情绪" title="">
+                </div>
+                <div class="image-caption">消极情绪</div>
+            </figure>
+<p>接下来看一下每位歌手最积极和最消极的十大金曲吧！</p>
+<h3 id="王力宏"><a href="#王力宏" class="headerlink" title="王力宏"></a>王力宏</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-af2550a8f87e6dd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="王力宏十大“负面情绪”歌曲" title="">
+                </div>
+                <div class="image-caption">王力宏十大“负面情绪”歌曲</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-92e2c915f97fc3cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="王力宏十大“正面情绪”歌曲" title="">
+                </div>
+                <div class="image-caption">王力宏十大“正面情绪”歌曲</div>
+            </figure>
+<h3 id="周杰伦"><a href="#周杰伦" class="headerlink" title="周杰伦"></a>周杰伦</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-0dd3cab4104a2af4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="周杰伦十大“负面情绪”歌曲" title="">
+                </div>
+                <div class="image-caption">周杰伦十大“负面情绪”歌曲</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-03caf7c349ae97d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="周杰伦十大“正面情绪”歌曲" title="">
+                </div>
+                <div class="image-caption">周杰伦十大“正面情绪”歌曲</div>
+            </figure>
+<h3 id="林俊杰"><a href="#林俊杰" class="headerlink" title="林俊杰"></a>林俊杰</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-a03ce3aa0407291d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="林俊杰十大“负面情绪”歌曲" title="">
+                </div>
+                <div class="image-caption">林俊杰十大“负面情绪”歌曲</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-f67798705124edfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="林俊杰十大“正面情绪”歌曲" title="">
+                </div>
+                <div class="image-caption">林俊杰十大“正面情绪”歌曲</div>
+            </figure>
+<h3 id="潘玮柏"><a href="#潘玮柏" class="headerlink" title="潘玮柏"></a>潘玮柏</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-822c658af2396873.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="潘玮柏十大“负面情感”歌曲" title="">
+                </div>
+                <div class="image-caption">潘玮柏十大“负面情感”歌曲</div>
+            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8604-b7c90a122ea3c75b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="潘玮柏十大“正面情感”歌曲"></p>
+<p><strong>基于以上榜单，我终于找到了最伤感的歌——《倒带》，消极指数高达0.99902。</strong>（虽然周杰伦只是唱过倒带）</p>
+<blockquote>
+<p>当你看完这些排行榜，你可以留言告诉我，你是否对最消极（伤感）和最积极（欢乐）歌曲排名的认可，这也可以提高我对这个情感分析工具准确性的判断。</p>
+</blockquote>
+<h2 id="趣味探索"><a href="#趣味探索" class="headerlink" title="趣味探索"></a>趣味探索</h2><p>在结束了主要部分情感分析内容后，我对歌词的用词和意象也做了一些探索。我把每首歌的歌词进行拆分，排除掉了停用词，对剩下的词做了一个频率统计。</p>
+<h3 id="你我还是她？"><a href="#你我还是她？" class="headerlink" title="你我还是她？"></a>你我还是她？</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-337a74eca37c0fa3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="“你我他”的词频统计" title="">
+                </div>
+                <div class="image-caption">“你我他”的词频统计</div>
+            </figure>
+<p>我首先对“你”，“我”，“他/她”三个词进行分析。大部分的歌以第一人称和第二人称为主。其中王力宏的歌词中第一人称出现比率较高，潘玮柏的歌词中第二人称出现的比较多。相对而言，第三人称在周杰伦的歌词中出现的比率比较高。</p>
+<p>我们可以推断出什么呢？王力宏是个自我意识比较强，善于表达自己的人；潘玮柏擅长与别人沟通，会站在对方角度考虑；周杰伦则像是站在旁观者的角度描述别人，有一种距离感（以上这是我的瞎扯）</p>
+<h3 id="“爱”你有多深"><a href="#“爱”你有多深" class="headerlink" title="“爱”你有多深"></a>“爱”你有多深</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-590106e3c4f93461.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="“爱”的词频统计" title="">
+                </div>
+                <div class="image-caption">“爱”的词频统计</div>
+            </figure>
+<p>在流行歌曲中，情歌的比重占了绝大部分，所以“爱”一字出现的频率比较高，我也对此做了一个统计。结果显示，在王力宏的所有歌曲里，“爱”出现的频率略高于其他三位男歌手，周杰伦的反而最低。这也可能和他的“旁观者”角度也有关系。王力宏因为对“我”字用的比较频繁，所以就经常表达自己的爱意，这么一想也就解释的通了。</p>
+<h3 id="四个人最喜欢的季节？"><a href="#四个人最喜欢的季节？" class="headerlink" title="四个人最喜欢的季节？"></a>四个人最喜欢的季节？</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/8604-1bd1eccab36a436f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最喜欢的季节" title="">
+                </div>
+                <div class="image-caption">最喜欢的季节</div>
+            </figure>
+<p>通过词频分析，周杰伦的歌词中有关秋天的意象出现的最多，王力宏则比较喜欢冬天和春天，林俊杰对夏天的热爱比较浓烈，潘玮柏的歌词中表现出的倾向性不大。<br>（注：林俊杰和潘玮柏歌词中对季节描述相对较少）</p>
+<h2 id="总结与展望"><a href="#总结与展望" class="headerlink" title="总结与展望"></a>总结与展望</h2><p>本次项目主要从数据分析的角度对四位华语男歌手的歌词进行了探索，分析了歌词的情感，找出了消极和积极的前十排行，也对几个字词进行了趣味性的探索。</p>
+<p>这是我第一次接触<strong>中文</strong>文本分析这块内容，自然有很大的不足。一开始我是想自己写情感分析模块，但是因为如果自己写的话会涉及到情感词典，否定词，程度词权重等诸多问题，我在尝试后得到的结果不尽如人意，又意外找到了一个快捷的工具，所以就放弃了自建情感分析。希望以后有机会可以自己再尝试，应用机器学习的方式做出自己的文本分析模型。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-05-20T20:34:03.433Z" itemprop="dateUpdated">2017-05-21 04:34:03</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://wcbro.com">
+            <img src="/img/avatar.jpg" alt="Clark Yu">
+            Clark Yu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wcbro.com/2017/05/09/lyrics/&title=《我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌》 — 厕所兄弟&pic=http://wcbro.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wcbro.com/2017/05/09/lyrics/&title=《我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌》 — 厕所兄弟&source=前言为了找到最伤感的一首歌，我分析了王力宏，周杰伦，林俊杰和潘玮柏32万字歌词。
+
+                
+                  ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wcbro.com/2017/05/09/lyrics/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌》 — 厕所兄弟&url=http://wcbro.com/2017/05/09/lyrics/&via=http://wcbro.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wcbro.com/2017/05/09/lyrics/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/20/20170520/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">博客更新&amp;近况更新</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/04/25/internship/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数据分析的实习？工资多少？怎么找？这里有你想知道的一切</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0v5vcUWN59lgzAGNTg9Ucb15-gzGzoHsz",
+            appKey: "iI0aRHtgT6myUnkfsSc3aJGR",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Clark Yu &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wcbro.com/2017/05/09/lyrics/&title=《我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌》 — 厕所兄弟&pic=http://wcbro.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wcbro.com/2017/05/09/lyrics/&title=《我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌》 — 厕所兄弟&source=前言为了找到最伤感的一首歌，我分析了王力宏，周杰伦，林俊杰和潘玮柏32万字歌词。
+
+                
+                  ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wcbro.com/2017/05/09/lyrics/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《我分析了王力宏、周杰伦、林俊杰和潘玮柏的32万字歌词：为了找到最伤感的一首歌》 — 厕所兄弟&url=http://wcbro.com/2017/05/09/lyrics/&via=http://wcbro.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wcbro.com/2017/05/09/lyrics/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://wcbro.com/2017/05/09/lyrics/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '客观别走！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '大吉大利，今晚吃鸡';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
